@@ -1,0 +1,1 @@
+# A-Method-to-minimize-spoofing-in-palmprint-identification-system
