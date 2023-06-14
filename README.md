@@ -1,8 +1,10 @@
 # A-Method-to-minimize-spoofing-in-palmprint-identification-system
 Abstract:
 Region of interest (ROI) derived palmprint images have higher entropy and require less processing and storage, they considerably improve the effectiveness of identification systems. Using image processing methods like dynamic thresholding for binarization, centroid determination, boundary extraction using morphological operations, Euclidean distance calculations from the centroid, valley point determination after smoothing the Euclidean distance plot, and from which the ROI is ultimately extracted, the technique used here calculates distances between points using geometry. Using this technique, ROIs for the datasets of sizes 128 x 128 and 256 x 256 have been extracted.
+
 Introduction:
 Biometric systems are a helpful feature for authenticating and differentiating people from other people. Its primary characteristics or properties, which include universality, distinctiveness, permanence, and collectability, make it a potent biometric for recognition. These make sure that the feature is present in everyone, that it has enough variation, and that it does not change drastically over time. The issue about these traits is acceptability, performance, and risk of circumvention.
+
 Execution:
 1. Our dataset consists of seven images of each of the 230 participants right and left hand while sampling a dataset consisting of only left hand of each participant.
 2. Each of these images are displayed on
@@ -34,7 +36,6 @@ the test into test and validation with ratio of 7:3.
 21. XGBoost is applied on the train data and with the model obtained the important
 features were extracted and ROC curve was plotted.
 22. Both the models were saved for further use.
-
 
 Significance of my work:
 In our approach, we will combine the most effective techniques from the studies we cited in our approach. Using a dataset from the Indian Institute of Technology, New Delhi that comprises of 230 people, 1300 photos of the right and left hands. Since the right hand is the one that recognition algorithms most frequently utilize to generate spoof photos, we will only use photographs of either hand in most cases. Since the reference articles show that it leads to a high mistake rate, we won't be using photos of one hand for training and the other hand for testing. For display spoof images, we will use the photos from the dataset and show them on a monitor consecutively while capturing pictures of the monitor with a phone or a webcam when each image is presented. A Python script will be used to automatically show the photographs on the screen, automating the entire process. The photos from the dataset are initially printed on an A4-sized sheet of paper for the print-based spoof image production. A 720-pixel image with a 1200 dpi resolution is taken using a camera.
