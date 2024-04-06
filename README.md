@@ -1,15 +1,44 @@
 # A-Method-to-minimize-spoofing-in-palmprint-identification-system
-Abstract:
+
+## Dataset:
+The IIT Delhi palmprint image database consists of the hand images collected from the students and staff at IIT Delhi, New Delhi, India. This database was acquired in the IIT Delhi campus from July 2006 - Jun 2007 using a simple and touchless imaging setup. All the images are collected in the indoor environment and employ circular fluorescent illumination around the camera lens. The currently available database is from 230 users, all the images are in bitmap (*.bmp) format. All the subjects in the database are in the age group 12-57 years. Seven images from each subject, from each of the left and right hands, are acquired in varying hand pose variations. Each of the subjects is provided with live feedback to present his/her hand in the imaging region. Touchless imaging results in higher image scale variations. The acquired images have been sequentially numbered for every user with an integer identification/number. The resolution of these images is 800 ´ 600 pixels.
+
+
+## Abstract:
 Region of interest (ROI) derived palmprint images have higher entropy and require less processing and storage, they considerably improve the effectiveness of identification systems. Using image processing methods like dynamic thresholding for binarization, centroid determination, boundary extraction using morphological operations, Euclidean distance calculations from the centroid, valley point determination after smoothing the Euclidean distance plot, and from which the ROI is ultimately extracted, the technique used here calculates distances between points using geometry. Using this technique, ROIs for the datasets of sizes 128 x 128 and 256 x 256 have been extracted.
 
-Introduction:
+## Introduction:
 Biometric systems are a helpful feature for authenticating and differentiating people from other people. Its primary characteristics or properties, which include universality, distinctiveness, permanence, and collectability, make it a potent biometric for recognition. These make sure that the feature is present in everyone, that it has enough variation, and that it does not change drastically over time. The issue about these traits is acceptability, performance, and risk of circumvention.
 
 
-Significance of my work:
-In our approach, we will combine the most effective techniques from the studies we cited in our approach. Using a dataset from the Indian Institute of Technology, New Delhi that comprises 230 people, 1300 photos of the right and left hands. Since the right hand is the one that recognition algorithms most frequently utilize to generate spoof photos, we will only use photographs of either hand in most cases. Since the reference articles show that it leads to a high mistake rate, we won't be using photos of one hand for training and the other hand for testing. For display spoof images, we will use the photos from the dataset and show them on a monitor consecutively while capturing pictures of the monitor with a phone or a webcam when each image is presented. A Python script will be used to automatically show the photographs on the screen, automating the entire process. The photos from the dataset are initially printed on an A4-sized sheet of paper for print-based spoof image production. A 720-pixel image with a 1200 dpi resolution is taken using a camera.
-We will first extract a 150-by-150-pixel section from the collected dataset, which is typically the center of the palm. Then, three sets of statistical characteristics obtained from the distribution of pixel densities, the Discrete Wavelet Transform (DWT) coefficient, and the grey-level co-occurrence matrix will be concatenated to construct the dataset of multi-dimensional features.
+## Significance of my work:
+This technique of applying Discrete Wavelet Transform (DWT) followed by Discrete Cosine Transform (DCT) on image patches can help in creating features that capture different aspects of the image's spatial and spectral information, useful for various image processing and analysis tasks. Here's a breakdown of what each step contributes to feature extraction:
 
-Novelty:
-People have made attempts to stop spoofing in contactless palmprint photos, and they have had some success in doing so, but switching between training on the left hand and testing on the right hand has significantly reduced the number of errors.
-Combining DWT and DCT allows redundancy that cannot be recovered using DCT alone to be extracted using DWT first, and then the local correlation is used by DCT later. DWT aids in the extraction of the facial image's general features.
+* Discrete Wavelet Transform (DWT):
+
+  DWT decomposes the image into sub-bands representing different frequency ranges and spatial locations.
+  The 'db1' wavelet used here is a good starting point for capturing both horizontal and vertical image structures.
+  The resulting sub-bands are:
+  1. LL (low-low): This sub-band contains the approximation coefficients, representing the overall image with reduced spatial resolution but preserving low-frequency information.
+  2. LH (low-high): This sub-band captures horizontal details at a higher frequency compared to LL.
+  3. HL (high-low): This sub-band captures vertical details at a higher frequency.
+  4. HH (high-high): This sub-band captures diagonal details and high-frequency information.
+
+* Splitting Sub-bands into Patches (split_img):
+
+Splitting the sub-bands (LL, LH, HL, HH) into smaller non-overlapping patches allows for localized feature extraction.
+By applying split_img, you can analyze the image content within smaller regions, potentially capturing local variations in texture, edges, and other spatial patterns.
+
+* Discrete Cosine Transform (DCT) on Patches:
+
+DCT transforms the pixel intensities within each patch into the frequency domain.
+The DCT coefficients represent the importance of different spatial frequencies in reconstructing the patch.
+Low-frequency coefficients capture the overall intensity variations within the patch, while high-frequency coefficients capture finer details and textures.
+
+* Overall, this technique helps create features that capture:
+
+Spatial information: DWT separates the image into sub-bands with localized frequency information. Splitting these sub-bands further refines the spatial resolution of the features.
+Spectral information: DCT applied to each patch captures the distribution of spatial frequencies within that local region.
+
+Principal Component Analysis (PCA), explained covariance ratio and singular values play crucial roles in understanding the dimensionality reduction process and the importance of the retained components.
+
