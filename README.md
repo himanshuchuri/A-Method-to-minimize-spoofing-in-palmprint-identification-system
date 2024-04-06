@@ -26,19 +26,19 @@ This technique of applying Discrete Wavelet Transform (DWT) followed by Discrete
 
 * Splitting Sub-bands into Patches (split_img):
 
-Splitting the sub-bands (LL, LH, HL, HH) into smaller non-overlapping patches allows for localized feature extraction.
-By applying split_img, you can analyze the image content within smaller regions, potentially capturing local variations in texture, edges, and other spatial patterns.
+  Splitting the sub-bands (LL, LH, HL, HH) into smaller non-overlapping patches allows for localized feature extraction.
+  By applying split_img, you can analyze the image content within smaller regions, potentially capturing local variations in texture, edges, and other spatial patterns.
 
 * Discrete Cosine Transform (DCT) on Patches:
 
-DCT transforms the pixel intensities within each patch into the frequency domain.
-The DCT coefficients represent the importance of different spatial frequencies in reconstructing the patch.
-Low-frequency coefficients capture the overall intensity variations within the patch, while high-frequency coefficients capture finer details and textures.
+  DCT transforms the pixel intensities within each patch into the frequency domain.
+  The DCT coefficients represent the importance of different spatial frequencies in reconstructing the patch.
+  Low-frequency coefficients capture the overall intensity variations within the patch, while high-frequency coefficients capture finer details and textures.
 
 * Overall, this technique helps create features that capture:
 
-Spatial information: DWT separates the image into sub-bands with localized frequency information. Splitting these sub-bands further refines the spatial resolution of the features.
-Spectral information: DCT applied to each patch captures the distribution of spatial frequencies within that local region.
+  Spatial information: DWT separates the image into sub-bands with localized frequency information. Splitting these sub-bands further refines the spatial resolution of the features.
+  Spectral information: DCT applied to each patch captures the distribution of spatial frequencies within that local region.
 
-Principal Component Analysis (PCA), explained covariance ratio and singular values play crucial roles in understanding the dimensionality reduction process and the importance of the retained components.
+  Principal Component Analysis (PCA), explained covariance ratio and singular values play crucial roles in understanding the dimensionality reduction process and the importance of the retained components.
 
